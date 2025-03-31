@@ -11,7 +11,7 @@ function! winmode#cmd(term=v:false)
     if a:term
         return (&termwinkey && mode() ==# 't' ? &termwinkey : "\<c-w>").":"
     endif
-    return ""
+    return ":"
 endfunction
 
 function winmode#start(term=v:false)
