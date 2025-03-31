@@ -1,0 +1,2 @@
+g:winmode_extra_cmd	winmode.txt	/*g:winmode_extra_cmd*
+winmode#start()	winmode.txt	/*winmode#start()*

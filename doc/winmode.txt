@@ -1,0 +1,20 @@
+winmode#start([{term}])					*winmode#start()*
+	Start the window mode and add <c-w> before pressing the key
+	Use <c-w>, <esc>, <c-m>, <space>, i or a to exit
+
+	If in the terminal launched by |:term|, {term}
+	Pass in |v:true| to make the default |:| run normally
+
+g:winmode_extra_cmd					*g:winmode_extra_cmd*
+	Customized key execution commands
+>
+	let g:winmode_extra_cmd = {
+	            \ 'M': "norm!\<c-w>_\<c-w>|",
+	            \ 'm': "norm!\<c-w>=",
+	            \ "'": 'exe"norm!m".getcharstr()',
+	            \ ':': 'cal feedkeys(" ".winmode#cmd(a:term))',
+	            \ 'gb': 'bn',
+	            \ 'gB': 'bp',
+	            \ }
+
+vim:tw=78:nosta:noet:ts=8:sts=0:ft=help:noet:fen:
