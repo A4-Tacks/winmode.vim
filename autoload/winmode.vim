@@ -1,11 +1,13 @@
-let g:winmode_extra_cmd = {
-            \ 'M': "norm!\<c-w>_\<c-w>|",
-            \ 'm': "norm!\<c-w>=",
-            \ "'": 'exe"norm!m".getcharstr()',
-            \ ':': 'cal feedkeys(" ".winmode#cmd(a:term))',
-            \ 'gb': 'bn',
-            \ 'gB': 'bp',
-            \ }
+if !exists('g:winmode_extra_cmd')
+    let g:winmode_extra_cmd = {
+                \ 'M': "norm!\<c-w>_\<c-w>|",
+                \ 'm': "norm!\<c-w>=",
+                \ "'": 'exe"norm!m".getcharstr()',
+                \ ':': 'cal feedkeys(" ".winmode#cmd(a:term))',
+                \ 'gb': 'bn',
+                \ 'gB': 'bp',
+                \ }
+endif
 
 function! winmode#cmd(term=v:false)
     if a:term
