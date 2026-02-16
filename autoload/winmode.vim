@@ -4,6 +4,8 @@ if !exists('g:winmode_extra_cmd')
                 \ 'm': "norm!\<c-w>=",
                 \ "'": 'exe"norm!m".getcharstr()',
                 \ ':': 'cal feedkeys(" ".winmode#cmd(a:term))',
+                \ '/': 'cal feedkeys(" ".winmode#normal("/", a:term))',
+                \ '?': 'cal feedkeys(" ".winmode#normal("?", a:term))',
                 \ 'gb': 'bn',
                 \ 'gB': 'bp',
                 \ }
@@ -14,6 +16,13 @@ function! winmode#cmd(term=v:false)
         return (len(&termwinkey) && mode() ==# 't' ? &termwinkey : "\<c-w>").":"
     endif
     return ":"
+endfunction
+
+function! winmode#normal(key, term=v:false)
+    if a:term
+        return (len(&termwinkey) && mode() ==# 't' ? &termwinkey : "\<c-w>")."N".a:key
+    endif
+    return a:key
 endfunction
 
 function winmode#start(term=v:false)
